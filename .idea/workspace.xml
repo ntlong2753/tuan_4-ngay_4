@@ -5,9 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="01eb92f8-7d21-4d3e-b1d3-1cf6eb0b6938" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/hachimi.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adam_eva.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adam_eva.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bong_den.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/caro.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hachimi.html" beforeDir="false" afterPath="$PROJECT_DIR$/hachimi.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,6 +21,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="JavaScript File" />
         <option value="HTML File" />
       </list>
     </option>
@@ -24,9 +29,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 5
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
   <component name="ProjectId" id="362ZCL4cer0EiuY4F4yKxhIY1Mq" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -36,29 +41,59 @@
   "keyToString": {
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "DefaultHtmlFileTemplate": "HTML File",
+    "JavaScript Debug.adam_eva.html (2).executor": "Run",
+    "JavaScript Debug.adam_eva.html (3).executor": "Run",
+    "JavaScript Debug.adam_eva.html.executor": "Run",
+    "JavaScript Debug.bong_den.html.executor": "Run",
+    "JavaScript Debug.caro.html.executor": "Run",
     "JavaScript Debug.hachimi.html.executor": "Run",
+    "JavaScript Debug.index.html.executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
     "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "main",
     "junie.onboarding.icon.badge.shown": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
     "to.speed.mode.migration.done": "true",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RunManager">
+    <configuration name="adam_eva.html (2)" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" engineId="ad48c93a-253c-433b-9771-33fbfadc1413" uri="http://localhost:56087/ngay_4/adam_eva.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="adam_eva.html (3)" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" engineId="ad48c93a-253c-433b-9771-33fbfadc1413" uri="http://localhost:56087/ngay_4/adam_eva.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="adam_eva.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" engineId="ad48c93a-253c-433b-9771-33fbfadc1413" uri="http://localhost:56087/ngay_4/adam_eva.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="bong_den.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" engineId="ad48c93a-253c-433b-9771-33fbfadc1413" uri="http://localhost:56087/ngay_4/bong_den.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="caro.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" engineId="ad48c93a-253c-433b-9771-33fbfadc1413" uri="http://localhost:63342/ngay_4/caro.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
     <configuration name="hachimi.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" engineId="ad48c93a-253c-433b-9771-33fbfadc1413" uri="http://localhost:63342/ngay_4/hachimi.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="index.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" engineId="ad48c93a-253c-433b-9771-33fbfadc1413" uri="http://localhost:63342/ngay_4/index.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JavaScript Debug.hachimi.html" />
+        <item itemvalue="JavaScript Debug.bong_den.html" />
+        <item itemvalue="JavaScript Debug.adam_eva.html (3)" />
+        <item itemvalue="JavaScript Debug.adam_eva.html (2)" />
+        <item itemvalue="JavaScript Debug.adam_eva.html" />
+        <item itemvalue="JavaScript Debug.caro.html" />
       </list>
     </recent_temporary>
   </component>
@@ -76,7 +111,10 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1764206500046</updated>
-      <workItem from="1764206501495" duration="2633000" />
+      <workItem from="1764206501495" duration="8414000" />
+      <workItem from="1764216041165" duration="108000" />
+      <workItem from="1764216165666" duration="207000" />
+      <workItem from="1764216382145" duration="2405000" />
     </task>
     <servers />
   </component>

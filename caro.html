@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <div id="game-board"></div>
+    <div id="message">Lượt chơi: X</div>
+    <style>
+        /* CSS cho bàn cờ */
+        #game-board {
+            width: 800px; /* 20 ô * 40px/ô */
+            height: 800px;
+            border: 1px solid #000;
+            position: relative; /* Container cho các ô position: absolute */
+            background-color: #e0e0e0;
+        }
+
+        .cell {
+            width: 38px;
+            height: 38px;
+            border: 1px solid #333;
+            box-sizing: border-box;
+            position: absolute;
+            cursor: pointer;
+            font-size: 24px;
+            text-align: center;
+            line-height: 38px;
+            color: black;
+            font-weight: bold;
+        }
+
+        .x-mark {
+            color: red;
+        }
+
+        .o-mark {
+            color: blue;
+        }
+
+        #message {
+            margin-top: 20px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+    </style>
+    <script>
+        // --- KHỞI TẠO BIẾN ---
+        let ROWS = 20;
+        let COLS = 20;
+        let CELL_SIZE = 40; // Kích thước mỗi ô (pixels)
+
+        // Mảng 2 chiều lưu trạng thái bàn cờ: 0: trống, 1: X, 2: O
+        let board = [];
+        let currentPlayer = 1; // 1 là X, 2 là O
+        let gameOver = false;
+
+        let boardElement = document.getElementById('game-board');
+        let messageElement = document.getElementById('message');
+
+        /**
+         * Hàm khởi tạo bàn cờ và mảng 2 chiều
+         */
+        function initializeBoard() {
+            // Khởi tạo mảng 2 chiều
+            for (let i = 0; i < ROWS; i++) {
+                board[i] = [];
+                for (let j = 0; j < COLS; j++) {
+                    board[i][j] = 0; // 0: ô trống
+                }
+            }
+
+            // Vẽ giao diện bàn cờ
+            for (let i = 0; i < ROWS; i++) {
+                for (let j = 0; j < COLS; j++) {
+                    let cell = document.createElement('div');
+                    cell.className = 'cell';
+
+                    // Dùng thuộc tính left và top để định vị các ô (position: absolute)
+                    cell.style.left = (j * CELL_SIZE) + 'px';
+                    cell.style.top = (i * CELL_SIZE) + 'px';
+
+                    // Lưu tọa độ (dòng và cột) vào thuộc tính dataset để xử lý sự kiện
+                    cell.dataset.row = i;
+                    cell.dataset.col = j;
+
+                    // Gắn sự kiện click
+                    cell.onclick = handleCellClick;
+
+                    boardElement.appendChild(cell);
+                }
+            }
+        }
+
+        // Bắt đầu trò chơi
+        initializeBoard();
+        /**
+         * Hàm xử lý sự kiện click chuột trên ô cờ
+         */
+        function handleCellClick() {
+            if (gameOver) {
+                return; // Không làm gì nếu trò chơi đã kết thúc
+            }
+
+            // Lấy tọa độ của ô được nhấn
+            let row = parseInt(this.dataset.row);
+            let col = parseInt(this.dataset.col);
+
+            // Kiểm tra ô đã được đánh chưa
+            if (board[row][col] === 0) {
+                // Cập nhật mảng 2 chiều
+                board[row][col] = currentPlayer;
+
+                // Hiển thị dấu X hoặc O
+                let mark = (currentPlayer === 1) ? 'X' : 'O';
+                this.innerHTML = mark;
+                this.classList.add((currentPlayer === 1) ? 'x-mark' : 'o-mark');
+
+                // Kiểm tra người thắng
+                if (checkWin(row, col)) {
+                    messageElement.innerHTML = "Người chơi " + mark + " **CHIẾN THẮNG!**";
+                    gameOver = true;
+                    return;
+                }
+
+                // Chuyển lượt chơi
+                currentPlayer = (currentPlayer === 1) ? 2 : 1;
+                messageElement.innerHTML = "Lượt chơi: " + ((currentPlayer === 1) ? 'X' : 'O');
+
+            } else {
+                console.log("Ô này đã được đánh!");
+            }
+        }
+        /**
+         * Hàm kiểm tra người thắng (5 ô liên tiếp)
+         * @param {number} r - Dòng của ô vừa đánh
+         * @param {number} c - Cột của ô vừa đánh
+         * @returns {boolean} - true nếu có người thắng
+         */
+        function checkWin(r, c) {
+            let playerValue = board[r][c];
+            let directions = [
+                [0, 1],   // Ngang (Horizontal)
+                [1, 0],   // Dọc (Vertical)
+                [1, 1],   // Chéo chính (\)
+                [1, -1]   // Chéo phụ (/)
+            ];
+
+            for (let i = 0; i < directions.length; i++) {
+                let dr = directions[i][0];
+                let dc = directions[i][1];
+
+                let count = 1; // Bắt đầu từ ô vừa đánh
+
+                // Kiểm tra theo hướng dương
+                for (let k = 1; k < 5; k++) {
+                    let nr = r + k * dr;
+                    let nc = c + k * dc;
+
+                    // Kiểm tra ngoài biên và giá trị
+                    if (nr >= 0 && nr < ROWS && nc >= 0 && nc < COLS && board[nr][nc] === playerValue) {
+                        count++;
+                    } else {
+                        break;
+                    }
+                }
+
+                // Kiểm tra theo hướng âm (ngược lại)
+                for (let k = 1; k < 5; k++) {
+                    let nr = r - k * dr;
+                    let nc = c - k * dc;
+
+                    if (nr >= 0 && nr < ROWS && nc >= 0 && nc < COLS && board[nr][nc] === playerValue) {
+                        count++;
+                    } else {
+                        break;
+                    }
+                }
+
+                // Nếu có 5 ô liên tiếp
+                if (count >= 5) {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+    </script>
+</body>
+</html>
