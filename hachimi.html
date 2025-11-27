@@ -2,9 +2,66 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Hachimi</title>
 </head>
 <body>
-
+    <div id="game"></div>
+    <script>
+        function Hero(image, top, left, size, speed){
+            this.image = image;
+            this.top = top;
+            this.left = left;
+            this.size = size;
+            this.speed = speed;
+            this.getHeroElement = function(){
+                return '<img width="'+ this.size + '"' +
+                    ' height="'+ this.size + '"' +
+                    ' src="' + this.image +'"' +
+                    ' style="top: '+this.top+'px; left:'+this.left+'px;position:absolute;"  alt=""/>';
+            }
+            this.moveRight = function(){
+                this.left += this.speed;
+                console.log('Right: ' + this.left);
+            }
+            this.moveLeft = function(){
+                this.left -= this.speed;
+                console.log('Left: ' + this.left);
+            }
+            this.moveUp = function(){
+                this.top -= this.speed;
+                console.log('Up: ' + this.top);
+            }
+            this.moveDown = function(){
+                this.top += this.speed;
+                console.log('Down: ' + this.top);
+            }
+        }
+        let hero = new Hero('hinh_anh/hachimi.jpg', 20, 30, 200, 20);
+        document.addEventListener('keydown', function(event){
+            switch(event.key){
+                case "ArrowRight":
+                    hero.moveRight();
+                    break;
+                case "ArrowLeft":
+                    hero.moveLeft();
+                    break;
+                case "ArrowUp":
+                    hero.moveUp();
+                    break;
+                case "ArrowDown":
+                    hero.moveDown();
+                    break;
+            }
+        })
+        document.getElementById('game').innerHTML = hero.getHeroElement();
+        function start(){
+            // if(hero.left < window.innerWidth - hero.size){
+            //     hero.moveRight();
+            // }
+            document.getElementById("game").innerHTML = hero.getHeroElement();
+            setTimeout(start, 0)
+        }
+        start();
+        </script>
 </body>
 </html>
