@@ -45,7 +45,6 @@ function Human(name, gender, initialWeight) {
         // Giả định true là nam, false là nữ
         return _gender;
     };
-
     // 3. setGender(newGender): Đặt lại giới tính
     // newGender (boolean)
     this.setGender = function(newGender) {
@@ -120,17 +119,17 @@ function Human(name, gender, initialWeight) {
 console.log("--- BẮT ĐẦU MÔ PHỎNG ADAM VÀ EVA ---");
 
 // 1. Khởi tạo đối tượng
-var apple = new Apple(); // Khối lượng mặc định: 10
-var adam = new Human("Adam", true, 60);  // true = Nam, Cân nặng ban đầu 60
-var eva = new Human("Eva", false, 55);  // false = Nữ, Cân nặng ban đầu 55
+let apple = new Apple(); // Khối lượng mặc định: 10
+let adam = new Human("Adam", true, 60);  // true = Nam, Cân nặng ban đầu 60
+let eva = new Human("Eva", false, 55);  // false = Nữ, Cân nặng ban đầu 55
 
 console.log("Táo được tạo với khối lượng ban đầu: " + apple.getWeight() + " đơn vị.");
 console.log("Adam (Nam) được tạo với cân nặng ban đầu: " + adam.getWeight() + " đơn vị.");
 console.log("Eva (Nữ) được tạo với cân nặng ban đầu: " + eva.getWeight() + " đơn vị.");
 console.log("-------------------------------------");
 
-var isAdamTurn = true;
-var round = 1;
+let isAdamTurn = true;
+let round = 1;
 
 // 2. Mô phỏng luân phiên ăn táo cho đến khi hết
 while (!apple.isEmpty()) {
